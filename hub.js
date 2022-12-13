@@ -4,21 +4,15 @@ const Chance = require('chance');
 const chance = new Chance();
 
 const eventPool = require('./eventPool');
+const driver = require('./driver');
+const vendor = require('./vendor');
 
-// handlers
-const { pickUpHandler, inTransitHandler, deliveredHandler } = require('./handlersWithTimeout');
+// defining logger to log per event
+function logger(event, payload) {
+    const time = new Date();
+    console.log('EVENT:', {event, time, payload});
+}
 
-eventPool.on('PICKUP', pickUpHandler);
-eventPool.on('IN-TRANSIT', inTransitHandler);
-eventPool.on('DELIVERED', deliveredHandler);
-
-// simulating pick-up request
-setInterval(() => {
-    let payload = {
-        'store' : '1-206-flowers',
-        'orderId' : chance.guid(),
-        'customer': chance.name(),
-        'address': chance.address()
-    };
-    eventPool.emit('PICKUP', payload);
-}, 20000);
+eventPool.on('PICKUP', (payload) => logger('PICKUP', payload));
+eventPool.on('IN_TRANSIT', (payload) => logger('IN_TRANSIT', payload));
+eventPool.on('DELIVERED', (payload) => logger('DELIVERED', payload));
