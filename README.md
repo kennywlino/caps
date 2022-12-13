@@ -23,11 +23,11 @@ Using event-driven programming, we set up events such as the pick-up request fro
 
 ### Features / Routes
 
-  - `eventPool.js` -- sets up the eventPool from the `events` module
-  - `hub.js` -- main file that triggers the first action of PICKUP and handles the event pool
-  - `pickUpHandler.js` -- handler for picking up orders
-  - `inTransitHandler.js` -- handler for indicating in transit orders
-  - `deliveredHandler.js` -- handler for indicating delivered orders 
+- `eventPool.js` -- sets up the eventPool from the `events` module
+- `hub.js` -- main file that triggers the first action of PICKUP and handles the event pool
+- `pickUpHandler.js` -- handler for picking up orders
+- `inTransitHandler.js` -- handler for indicating in transit orders
+- `deliveredHandler.js` -- handler for indicating delivered orders
 
 ### Tests
 
