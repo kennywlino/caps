@@ -12,7 +12,7 @@ Using event-driven programming, we set up events such as the pick-up request fro
 
 ### Links and Resources
 
-- [Main PR from events](https://github.com/kennywlino/auth-api/pull/1)
+- [Main PR from events](https://github.com/kennywlino/caps/pull/1)
 
 ### Setup
 
