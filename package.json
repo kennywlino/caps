@@ -1,0 +1,24 @@
+{
+  "name": "caps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "driverHandler.js",
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennywlino/caps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kennywlino/caps/issues"
+  },
+  "homepage": "https://github.com/kennywlino/caps#readme",
+  "dependencies": {
+    "chance": "^1.1.9",
+    "jest": "^29.3.1"
+  }
+}
