@@ -1,0 +1,23 @@
+{
+  "name": "caps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "driverHandler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennywlino/caps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kennywlino/caps/issues"
+  },
+  "homepage": "https://github.com/kennywlino/caps#readme",
+  "dependencies": {
+    "chance": "^1.1.9"
+  }
+}
