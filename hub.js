@@ -1,15 +1,12 @@
 'use strict';
 
 const Chance = require('chance');
-
 const chance = new Chance();
 
 const eventPool = require('./eventPool');
 
 // handlers
-const pickUpHandler = require('./pickUpHandler');
-const inTransitHandler = require('./inTransitHandler');
-const deliveredHandler = require('./deliveredHandler');
+const { pickUpHandler, inTransitHandler, deliveredHandler } = require('./handlersWithTimeout');
 
 eventPool.on('PICKUP', pickUpHandler);
 eventPool.on('IN-TRANSIT', inTransitHandler);
