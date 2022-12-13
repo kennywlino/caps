@@ -12,7 +12,8 @@ Using event-driven programming, we set up events such as the pick-up request fro
 
 ### Links and Resources
 
-- [Main PR from events](https://github.com/kennywlino/caps/pull/1)
+- [PR with corrections](https://github.com/kennywlino/caps/pull/3)
+- [Original PR from events](https://github.com/kennywlino/caps/pull/1)
 
 ### Setup
 

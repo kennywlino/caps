@@ -1,17 +1,16 @@
 'use strict';
 
 const eventPool = require('../eventPool');
+const{ pickupInTransit, deliveryHandler } = require('./handlers');
 
 eventPool.on('PICKUP', driverHandler);
 
 function driverHandler(payload) {
     setTimeout(() => {
-        console.log('Driver picked up order:', payload.orderId);
-        eventPool.emit('IN_TRANSIT', payload)
+        pickupInTransit(payload);
     }, 2000);
 
     setTimeout(() => {
-        console.log('Driver delivered order', payload.orderId);
-        eventPool.emit('DELIVERED', payload);
+       deliveryHandler(payload); 
     }, 2000);
 }
