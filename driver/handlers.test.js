@@ -1,9 +1,10 @@
 'use strict';
 
 const { pickupInTransit, deliveryHandler } = require('./handlers');
-const eventPool = require('../eventPool');
+const { io } = require('socket.io-client');
+const socket = io('http://localhost:3001/caps');
 
-jest.mock('../eventPool.js', () => {
+jest.mock('socket', () => {
     return {
         on: jest.fn(),
         emit: jest.fn(),
@@ -19,14 +20,14 @@ describe('Driver', () => {
         'address': '123 Wallaby Lane'
     };
     test('picks up order and emits in transit', () => {
-        pickupInTransit(payload);
+        pickupInTransit(socket)(payload);
         expect(console.log).toHaveBeenCalledWith('Driver picked up order:', payload.orderId);
-        expect(eventPool.emit).toHaveBeenCalledWith('IN_TRANSIT', payload);
+        expect(socket.emit).toHaveBeenCalledWith('IN_TRANSIT', payload);
     });
 
     test('delivers order', () => {
-        deliveryHandler(payload);
+        deliveryHandler(socket)(payload);
         expect(console.log).toHaveBeenCalledWith('Driver delivered order:', payload.orderId);
-        expect(eventPool.emit).toHaveBeenCalledWith('DELIVERED', payload);
+        expect(socket.emit).toHaveBeenCalledWith('DELIVERED', payload);
     })
 });

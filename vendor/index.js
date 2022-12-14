@@ -1,14 +1,15 @@
 'use strict';
 
-const eventPool = require('../eventPool');
 
 const { generateOrder, thankDriver } = require('./handlers');
 
-eventPool.on('DELIVERED', thankDriver);
+const { io } = require('socket.io-client');
+const socket = io('http://localhost:3001/caps');
+const requestPickup = generateOrder(socket);
+
+socket.on('DELIVERED', thankDriver);
 
 setInterval(() => {
     console.log('------New Pickup Order-------');
-    generateOrder();
-}, 5000);
-
-module.exports = { generateOrder, thankDriver }
+    requestPickup();
+}, 3000);
