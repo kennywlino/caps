@@ -12,9 +12,12 @@ Using event-driven programming, we set up events such as the pick-up request fro
 
 In Class-12, we bring in the socket.io module to replace the node.js `events` module and use it to handle the events. We separate the vendor and driver into different folders from the server which allows us to simulate clients triggering (emitting) and acting on events.
 
+In Class-13, we add in a new feature using a Queue (not the data structure) to store events that happen while a vendor or driver is "offline". When they are "reconnected", an event is triggered to retrieve any PICKUP requests or DELIVERY notices they've missed.
+
 ### Links and Resources
 
-- [CLASS-12: Socket.io PR](https://github.com/kennywlino/caps/pull/3)
+- [CLASS-13: Socket.io with Queue](https://github.com/kennywlino/caps/pull/5)
+- [CLASS-12: Socket.io PR](https://github.com/kennywlino/caps/pull/4)
 - [CLASS-11: PR with corrections from code review](https://github.com/kennywlino/caps/pull/3)
 - [CLASS-11: Original PR from events](https://github.com/kennywlino/caps/pull/1)
 
@@ -22,11 +25,15 @@ In Class-12, we bring in the socket.io module to replace the node.js `events` mo
 
 #### How to initialize/run your application
 
-- CLASS-12 -- `node index.js` in driver, vendor and server directories
+- CLASS-12 and CLASS-13 -- `node index.js` in driver, vendor and server directories
 - CLASS-11 -- `node hub.js`
 
 
 ### Features / Routes
+
+#### CLASS-13
+
+Includes Queue and new events to listen for items added that is triggered when drivers/vendors come back "online".
 
 #### CLASS-12
 
@@ -57,3 +64,4 @@ In Class-12, we bring in the socket.io module to replace the node.js `events` mo
 
 ![Class-11 UML](./assets/CLASS-11_%20Event%20Driven%20Applications.jpeg)
 ![Class-12 UML](./assets/CLASS-12_Socket_io.jpeg)
+![Class-13 UML](./assets/CLASS-13_Socket_io_Queue.jpeg)
