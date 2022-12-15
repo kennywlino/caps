@@ -58,14 +58,14 @@ caps.on('connection', (socket) => {
     }
     // store the payload (i.e. package) at the orderID key
     currentQueue.store(payload.orderId, payload);
-    console.log('in DELIVERED:', currentQueue);
+    // console.log('in DELIVERED:', currentQueue);
     logger('DELIVERED', payload);
     socket.broadcast.emit('DELIVERED', payload);
   });
 
   socket.on('GET_PICKUPS', (payload) => {
     let currentQueue = pickUpQueue.read(payload.vendorId);
-    console.log('Currently in: GET_PICKUPS with', payload.vendorId);
+    // console.log('Currently in: GET_PICKUPS with', payload.vendorId);
     if(currentQueue && currentQueue.data){
       Object.keys(currentQueue.data).forEach(orderId => {
         socket.emit('PICKUP', currentQueue.read(orderId));
@@ -75,7 +75,7 @@ caps.on('connection', (socket) => {
 
   socket.on('GET_DELIVERED', (payload) => {
     let currentQueue = deliveredQueue.read(payload.vendorId);
-    console.log('Currently in: GET_DELIVERED with', payload.vendorId);
+    // console.log('Currently in: GET_DELIVERED with', payload.vendorId);
     if(currentQueue && currentQueue.data){
       Object.keys(currentQueue.data).forEach(orderId => {
         socket.emit('DELIVERED', currentQueue.read(orderId));
