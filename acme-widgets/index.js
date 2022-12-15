@@ -3,8 +3,9 @@
 
 const { generateOrder, thankDriver } = require('./handlers');
 
-const { io } = require('socket.io-client');
-const socket = io('http://localhost:3001/caps');
+// const { io } = require('socket.io-client');
+// const socket = io('http://localhost:3001/caps');
+let socket = require('../socket-client');
 const requestPickup = generateOrder(socket);
 
 let vendorId = 'acme-widgets';

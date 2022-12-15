@@ -1,10 +1,11 @@
 'use strict';
 
 const { pickupInTransit, deliveryHandler } = require('./handlers');
-const { io } = require('socket.io-client');
-const socket = io('http://localhost:3001/caps');
+// const { io } = require('socket.io-client');
+// const socket = io('http://localhost:3001/caps');
+let socket = require('../socket-client');
 
-jest.mock('socket', () => {
+jest.mock('../socket-client', () => {
   return {
     on: jest.fn(),
     emit: jest.fn(),
