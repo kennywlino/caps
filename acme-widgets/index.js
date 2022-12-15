@@ -10,7 +10,7 @@ const requestPickup = generateOrder(socket);
 
 let vendorId = 'acme-widgets';
 
-// JOINs the 1-206-flowers room
+// JOINs the acme-widgets room
 socket.emit('JOIN', vendorId);
 
 socket.emit('GET_DELIVERED', { vendorId });
